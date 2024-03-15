@@ -183,25 +183,6 @@ EXPOSE 80
 # Command to run NGINX in the foreground
 CMD ["nginx", "-g", "daemon off;"]
 
-# Copy application code
-COPY . .
-
-# Build the application
-RUN npm run build
-
-# Stage 2: Create the production image
-FROM nginx:alpine
-
-# Copy built files from the build stage
-COPY --from=build /usr/src/app/dist/student-fontend /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/nginx.conf
-
-
-# Expose port
-EXPOSE 80
-
-# Command to run NGINX in the foreground
-CMD ["nginx", "-g", "daemon off;"]
 ```
 
 ### Docker Compose File for Backend, Frontend, and MySQL
