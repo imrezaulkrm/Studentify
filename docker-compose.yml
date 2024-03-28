@@ -15,8 +15,8 @@ services:
 
   backend:
     build:
-      context: .
-      dockerfile: ./student-backend
+      context: ./student-backend
+      dockerfile: Dockerfile
     container_name: backend
     restart: always
     environment:
@@ -31,9 +31,9 @@ services:
 
   frontend:
     build:
-      context: .
-      dockerfile: ./student-frontend
-    container_name: frontend
+      context: ./student-fontend
+      dockerfile: Dockerfile
+    container_name: fontend
     restart: always
     ports:
       - "80:80"
