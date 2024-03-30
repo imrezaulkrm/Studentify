@@ -23,7 +23,7 @@ spec:
   selector:         
     matchLabels:
       app: springboot-k8s-mysql
-  replicas: 3        
+  replicas: 1        
   template:
     metadata:
       labels:        
@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
         - name: springboot-k8s-mysql
-          image: springboot:1.0
+          image: imrezaulkrm/springboot:1.0
           ports:
             - containerPort: 8080                
           env:   # Setting Enviornmental Variables

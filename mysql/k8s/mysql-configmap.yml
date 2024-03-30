@@ -3,5 +3,36 @@ kind: ConfigMap
 metadata:
   name: db-conf
 data:
- host: mysql
- name: studentdb
+  host: mysql
+  name: studentdb
+  init.config: |
+    #!/bin/bash
+
+    # Decode base64-encoded values from mounted secret
+    ROOT_PASSWORD=Rez@ul123
+    DATABASE=studentdb
+    USER=rezaul
+    PASSWORD=Rez@ul123
+
+    # Start MySQL server with InnoDB recovery
+    /usr/sbin/mysqld --initialize-insecure --innodb-force-recovery=1
+
+    # Start MySQL service
+    /usr/sbin/service mysql start
+
+    # Wait for MySQL to start
+    sleep 10s
+
+    # Run MySQL initialization commands
+    mysql -uroot -e "CREATE DATABASE IF NOT EXISTS $DATABASE;"
+    mysql -uroot -e "CREATE USER IF NOT EXISTS '$USER'@'%' IDENTIFIED BY '$PASSWORD';"
+    mysql -uroot -e "GRANT ALL PRIVILEGES ON $DATABASE.* TO '$USER'@'%';"
+
+    # Stop MySQL service
+    /usr/sbin/service mysql stop
+
+    # Start MySQL service in normal mode
+    /usr/sbin/service mysql start
+
+    # Tail the MySQL log file
+    tail -f /var/log/mysql/error.log

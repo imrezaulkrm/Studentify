@@ -14,5 +14,5 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: manual
   hostPath:
-    path: /home/rezaul/student-mysql
+    path: /home/imrezaulkrm/student-mysql
 
