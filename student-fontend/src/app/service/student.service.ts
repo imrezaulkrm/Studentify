@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 //const BASIC_URL = ["http://localhost:8080/"]
-const BASIC_URL = ["http://192.168.59.100:30163"]
+//const BASIC_URL = "http://192.168.59.101:30163";
+const BASIC_URL = "studentify";
 @Injectable({
   providedIn: 'root'
 })

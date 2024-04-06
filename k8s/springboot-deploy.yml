@@ -1,18 +1,17 @@
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: springboot-k8s-mysql
   labels:
     name: springboot-k8s-mysql
 spec:
   ports:
-    - nodePort: 30163 
-      port: 8080      
-      targetPort: 8080  
+    - port: 8080        # Port on which the service is exposed internally
+      targetPort: 8080  # Port number that the container is listening on
       protocol: TCP
-  selector:           
+  selector:
     app: springboot-k8s-mysql
-  type: NodePort       
+  type: ClusterIP     
 
 ---
 apiVersion: apps/v1 
