@@ -123,10 +123,11 @@ student-frontend
 ├── tsconfig.json 
 ├── tsconfig.spec.json 
 └── yarn.lock
+
 ## Contributing
 
 Contributions to Studentify are welcome! Feel free to submit bug reports, feature requests, or pull requests to help improve the project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](./student-fontend/LICENSE) file for details.

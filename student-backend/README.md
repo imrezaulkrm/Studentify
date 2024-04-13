@@ -85,4 +85,4 @@ Studentify offers a comprehensive solution for educational institutions to manag
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](./student-backend/LICENSE) file for details.
