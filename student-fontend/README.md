@@ -76,54 +76,6 @@ docker push your-repository-name/studentify:frontend
 docker logout
 ```
 
-
-## File Structure
-student-frontend 
-├── node_modules 
-├── src 
-│ ├── app 
-│ │ ├── components 
-│ │ │ ├── get-all-students 
-│ │ │ │ ├── get-all-students.component.css 
-│ │ │ │ ├── get-all-students.component.html 
-│ │ │ │ ├── get-all-students.component.spec.ts 
-│ │ │ │ └── get-all-students.component.ts 
-│ │ │ ├── post-student 
-│ │ │ │ ├── post-student.component.css 
-│ │ │ │ ├── post-student.component.html 
-│ │ │ │ ├── post-student.component.spec.ts 
-│ │ │ │ └── post-student.component.ts 
-│ │ │ ├── update-student 
-│ │ │ │ ├── update-student.component.css 
-│ │ │ │ ├── update-student.component.html 
-│ │ │ │ ├── update-student.component.spec.ts 
-│ │ │ │ └── update-student.component.ts 
-│ │ ├── service 
-│ │ │ ├── student.service.spec.ts 
-│ │ │ └── student.service.ts 
-│ │ ├── app.component.css 
-│ │ ├── app.component.html 
-│ │ ├── app.component.spec.ts 
-│ │ ├── app.component.ts 
-│ │ ├── app.module.ts 
-│ │ └── app-routing.module.ts 
-│ ├── assets 
-│ ├── icon.ico 
-│ ├── icon.jpg 
-│ ├── index.html 
-│ ├── main.ts 
-│ ├── student.ico 
-│ └── styles.css 
-├── angular.json 
-├── Dockerfile 
-├── nginx.conf 
-├── package.json 
-├── package-lock.json 
-├── tsconfig.app.json 
-├── tsconfig.json 
-├── tsconfig.spec.json 
-└── yarn.lock
-
 ## Contributing
 
 Contributions to Studentify are welcome! Feel free to submit bug reports, feature requests, or pull requests to help improve the project.

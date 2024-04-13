@@ -48,33 +48,9 @@ docker logout
 - Java
 - Spring Boot
 - Maven
-## Project Structure
 
-student-backend 
-├── src 
-│ ├── main 
-│ │ ├── java/studentdot/student/ 
-│ │ │ ├── controller 
-│ │ │ │ └── StudentController.java 
-│ │ │ ├── entity 
-│ │ │ │ └── Student.java 
-│ │ │ ├── repository 
-│ │ │ │ └── StudentRepository.java 
-│ │ │ ├── service 
-│ │ │ │ └── StudentService.java 
-│ │ │ └── StudentApplication.java 
-│ │ ├── resources 
-│ │ │ └── application.properties 
-│ ├── test 
-│ │ ├── java/studentdot/student/ 
-│ │ │ └── StudentApplicationTests.java 
-├── target 
-├── Dockerfile 
-├── mvnw 
-├── mvnw.cmd 
-└── pom.xml
 
-**Key Components:**
+## Key Components:
 - **Controller:** Handles incoming HTTP requests and delegates the processing to service classes.
 - **Service:** Implements business logic and interacts with repositories.
 - **Repository:** Interface for database CRUD operations.
