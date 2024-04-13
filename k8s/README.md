@@ -57,4 +57,4 @@ By default, these deployment files reference DockerHub images. If you've pushed 
 In conclusion, Studentify offers a versatile platform to meet the evolving demands of educational institutions. Whether it's facilitating data entry, ensuring data security, or enabling customization to meet specific institutional needs, Studentify provides a comprehensive solution for managing student information effectively.
 
 ## License 
-This project is licensed under the MIT License. See the [LICENSE](./k8s/LICENSE) file for details. You can copy and paste this section into your README.md file in the Kubernetes folder of your project repository. Let me know if you need further assistance!
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details. You can copy and paste this section into your README.md file in the Kubernetes folder of your project repository. Let me know if you need further assistance!

@@ -130,4 +130,4 @@ Contributions to Studentify are welcome! Feel free to submit bug reports, featur
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](./student-fontend/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
