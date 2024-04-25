@@ -17,6 +17,7 @@ pipeline {
         }
         stage('Build Docker Image'){
             steps {
+                 sh "cd student-fontend"
                  sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
                  sh "docker build -t ${IMAGE_NAME}:latest ."
             }
@@ -34,6 +35,7 @@ pipeline {
             steps {
                 sh "docker rmi ${IMAGE_NAME}:${IMAGE_TAG}"
                 sh "docker rmi ${IMAGE_NAME}:latest"
+                sh "cd .."
             }
         }
         stage('Updating Kubernetes deployment file'){
