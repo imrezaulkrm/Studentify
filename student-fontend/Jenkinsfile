@@ -39,11 +39,21 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dpass', usernameVariable: 'dockeruser')]) {
                     sh "docker login -u $dockeruser --password $dpass"
-                    sh "docker push ${IMAGE_NAME}:${IMAGE_TAG} ."
-                    sh "docker push ${IMAGE_NAME}:latest ."
+                    sh "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
+                    sh "docker push ${IMAGE_NAME}:latest"
                 }
             }
         }
+
+        // stage('Push Docker Image'){
+        //     steps {
+        //         withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dpass', usernameVariable: 'dockeruser')]) {
+        //             sh "docker login -u $dockeruser --password $dpass"
+        //             sh "docker push ${IMAGE_NAME}:${IMAGE_TAG} ."
+        //             sh "docker push ${IMAGE_NAME}:latest ."
+        //         }
+        //     }
+        // }
         stage('Delete Docker Images'){
             steps {
                 sh "docker rmi ${IMAGE_NAME}:${IMAGE_TAG}"
