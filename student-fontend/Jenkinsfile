@@ -77,7 +77,7 @@ pipeline {
                     sh """
                     git config --global user.name "rezaul"
                     git config --global user.email "sayem010ahmed@gmail.com"
-                    git add deployment.yml
+                    git add angular-deployment.yml
                     git commit -m 'Updated the deployment file' """
                     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'gpass', usernameVariable: 'githubuser')]) {
                         sh "git push http://$githubuser:$gpass@github.com/imrezaulkrm/Studentify.git main"
