@@ -26,8 +26,13 @@ pipeline {
         }
         stage('Build Docker Image'){
             steps {
-                sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
-                sh "docker build -t ${IMAGE_NAME}:latest ."
+                dir('student-fontend') {
+                    sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
+                    sh "docker build -t ${IMAGE_NAME}:latest ."
+                    // Add additional Docker build steps if needed
+                }
+                // sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
+                // sh "docker build -t ${IMAGE_NAME}:latest ."
             }
         }
         stage('Push Docker Image'){
