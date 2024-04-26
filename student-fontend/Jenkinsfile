@@ -61,21 +61,12 @@ pipeline {
                 sh "cd .."
             }
         }
-        
+
         stage('Updating Kubernetes deployment file'){
             steps {
-                // Display the content of the YAML file
                 sh "cat k8s/angular-deployment.yml"
-        
-        // Modify the YAML file to replace ${APP_NAME} with the image tag
                 sh "sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' k8s/angular-deployment.yml"
-        
-        // Display the modified content of the YAML file
                 sh "cat k8s/angular-deployment.yml"
-        
-        // Apply the modified YAML file to the Kubernetes cluster   
-                sh "kubectl apply -f k8s/angular-deployment.yml"
-            }
         }
 
         stage('Push the changed deployment file to Git'){
