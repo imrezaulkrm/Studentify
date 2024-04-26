@@ -20,6 +20,7 @@ pipeline {
                  sh "git clone https://github.com/imrezaulkrm/Studentify.git"
                  sh "cd Studentify"
                  sh "cd Studentify"
+                 sh "pwd"
                  sh "ls"
                  sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
                  sh "docker build -t ${IMAGE_NAME}:latest ."
