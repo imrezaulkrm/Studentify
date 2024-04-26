@@ -67,7 +67,9 @@ pipeline {
                 sh "cat k8s/angular-deployment.yml"
                 sh "sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' k8s/angular-deployment.yml"
                 sh "cat k8s/angular-deployment.yml"
+            }
         }
+
 
         stage('Push the changed deployment file to Git'){
             steps {
