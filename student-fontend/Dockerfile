@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Set npm config timeout
-ENV npm_config_timeout=300000
+ENV npm_config_timeout=600000
 
 # Install dependencies
 RUN npm install
