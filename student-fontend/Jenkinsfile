@@ -69,22 +69,37 @@ pipeline {
                 sh "cat k8s/angular-deployment.yml"
             }
         }
-
-
-        stage('Push the changed deployment file to Git'){
+        
+        stage('Push the changed deployment file to Git') {
             steps {
-                script{
-                    sh """
-                    git config --global user.name "rezaul"
-                    git config --global user.email "sayem010ahmed@gmail.com"
-                    git add k8s/angular-deployment.yml
-                    git commit -m 'Updated the deployment file' """
+                script {
+                    sh 'git config --global user.name "rezaul"'
+                    sh 'git config --global user.email "sayem010ahmed@gmail.com"'
+                    sh 'git add k8s/angular-deployment.yml'
+                    sh 'git commit -m "Updated the deployment file"'
                     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'gpass', usernameVariable: 'githubuser')]) {
-                        sh "git push http://$githubuser:$gpass@github.com/imrezaulkrm/Studentify.git main"
+                        sh "git push https://$githubuser:$gpass@github.com/imrezaulkrm/Studentify.git main"
                     }
                 }
             }
         }
+
+
+
+        // stage('Push the changed deployment file to Git'){
+        //     steps {
+        //         script{
+        //             sh """
+        //             git config --global user.name "rezaul"
+        //             git config --global user.email "sayem010ahmed@gmail.com"
+        //             git add k8s/angular-deployment.yml
+        //             git commit -m 'Updated the deployment file' """
+        //             withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'gpass', usernameVariable: 'githubuser')]) {
+        //                 sh "git push http://$githubuser:$gpass@github.com/imrezaulkrm/Studentify.git main"
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
 
