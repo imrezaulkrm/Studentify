@@ -21,6 +21,7 @@ pipeline {
                 sh "ls"
                 sh "pwd"
                 sh "cd student-fontend"
+                sh "ls"
             }
         }
         stage('Build Docker Image'){
