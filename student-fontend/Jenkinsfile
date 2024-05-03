@@ -62,13 +62,15 @@ pipeline {
             }
         }
 
-        stage('Updating Kubernetes deployment file'){
+        stage('Updating Kubernetes deployment file') {
             steps {
                 sh "cat k8s/angular-deployment.yml"
-                sh "sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' k8s/angular-deployment.yml"
+                // Construct the sed command to change only line 17
+                sh """sed -i '17s/.*/          image: ${DOCKERHUB_USERNAME}/${APP_NAME}:${BUILD_NUMBER}/' k8s/angular-deployment.yml"""
                 sh "cat k8s/angular-deployment.yml"
             }
         }
+
         
         stage('Push the changed deployment file to Git') {
             steps {
