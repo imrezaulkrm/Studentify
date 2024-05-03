@@ -1,19 +1,19 @@
-apiVersion: apps/v1 # For versions before 1.9.0 use apps/v1beta2
-kind: Deployment    
-metadata:   # Data that helps  uniquely identify the object (using name, UID and namespace)          
-  name: angular:49
-spec:  # What state you desire for the object              
-  selector:  # The selector field defines how the deployment finds which pod to manage       
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular
+spec:
+  selector:
     matchLabels:
-      app: angular:49
-  replicas: 1  # Tells the deployment to run 3 pods matching the template      
+      app: angular
+  replicas: 1
   template:
     metadata:
-      labels:  # Labels are used as indentifying attributes for objects such as pods and replication controller.      
-        app: angular:49
+      labels:
+        app: angular
     spec:
       containers:
-        - name: angular:49
+        - name: angular
           image: imrezaulkrm/angular:49
           imagePullPolicy: IfNotPresent
           ports:
@@ -22,15 +22,15 @@ spec:  # What state you desire for the object
 apiVersion: v1
 kind: Service
 metadata:
-  name: angular:49
+  name: angular
   labels:
-    name: angular:49
+    app: angular
 spec:
   ports:
-    - port: 80        # Access the service internally via this port
-      targetPort: 80  # Port number that the container is listening on
+    - port: 80
+      targetPort: 80
       protocol: TCP
   selector:
-    app: angular:49
-  type: ClusterIP   # Use ClusterIP to expose the service internally within the cluster
+    app: angular
+  type: ClusterIP
 
