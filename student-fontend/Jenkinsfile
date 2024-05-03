@@ -66,7 +66,7 @@ pipeline {
             steps {
                 sh "cat k8s/angular-deployment.yml"
                 // Construct the sed command to change only line 17
-                sh """sed -i '17s#image:.*#image: imrezaulkrm/angular:58#' k8s/angular-deployment.yml"""
+                sh """sed -i '17s#image:.*#image: ${IMAGE_NAME}:${IMAGE_TAG}#' k8s/angular-deployment.yml"""
                 sh "cat k8s/angular-deployment.yml"
             }
         }
