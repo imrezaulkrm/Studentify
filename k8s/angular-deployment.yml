@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: angular
-          image: imrezaulkrm/angular:58
+          image: imrezaulkrm/angular:62
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
