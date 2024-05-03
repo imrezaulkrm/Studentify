@@ -15,7 +15,7 @@ spec:
         path: /?(.*)
         backend:
           service:
-            name: angular-k8s-service
+            name: angular
             port:
               number: 80
   - http:
