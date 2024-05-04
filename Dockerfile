@@ -5,8 +5,9 @@ FROM openjdk:17 AS builder
 WORKDIR /app
 
 # Copy Maven Wrapper
-COPY mvnw .
-COPY mvnw.cmd .
+COPY . .
+#COPY mvnw .
+#COPY mvnw.cmd .
 #COPY .mvn .mvn
 
 # Copy Maven project files
