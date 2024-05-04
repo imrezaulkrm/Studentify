@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: springboot-k8s-mysql
-          image: imrezaulkrm/springboot:1.0
+          image: imrezaulkrm/springboot:5
           ports:
             - containerPort: 8080                
           env:   # Setting Enviornmental Variables
