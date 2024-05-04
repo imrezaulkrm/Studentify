@@ -17,11 +17,7 @@ pipeline {
         }
         stage('source code pull from github') {
             steps {
-                git branch: 'main', url: 'https://github.com/imrezaulkrm/Studentify.git'
-                sh "ls"
-                sh "pwd"
-                sh "cd student-fontend"
-                sh "ls"
+                git branch: 'frontend', url: 'https://github.com/imrezaulkrm/Studentify.git'
             }
         }
         stage('Build Docker Image'){
