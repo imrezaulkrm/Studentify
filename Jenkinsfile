@@ -26,13 +26,8 @@ pipeline {
         }
         stage('Build Docker Image'){
             steps {
-                dir('student-fontend') {
-                    sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
-                    sh "docker build -t ${IMAGE_NAME}:latest ."
-                    // Add additional Docker build steps if needed
-                }
-                // sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
-                // sh "docker build -t ${IMAGE_NAME}:latest ."
+                sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
+                sh "docker build -t ${IMAGE_NAME}:latest ."
             }
         }
         stage('Push Docker Image'){
@@ -45,15 +40,6 @@ pipeline {
             }
         }
 
-        // stage('Push Docker Image'){
-        //     steps {
-        //         withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dpass', usernameVariable: 'dockeruser')]) {
-        //             sh "docker login -u $dockeruser --password $dpass"
-        //             sh "docker push ${IMAGE_NAME}:${IMAGE_TAG} ."
-        //             sh "docker push ${IMAGE_NAME}:latest ."
-        //         }
-        //     }
-        // }
         stage('Delete Docker Images'){
             steps {
                 sh "docker rmi ${IMAGE_NAME}:${IMAGE_TAG}"
@@ -64,6 +50,7 @@ pipeline {
 
         stage('Updating Kubernetes deployment file') {
             steps {
+                sh "git checkout main"
                 sh "cat k8s/angular-deployment.yml"
                 // Construct the sed command to change only line 17
                 sh """sed -i '17s#image:.*#image: ${IMAGE_NAME}:${IMAGE_TAG}#' k8s/angular-deployment.yml"""
@@ -75,6 +62,7 @@ pipeline {
         stage('Push the changed deployment file to Git') {
             steps {
                 script {
+                    sh 'git checkout main'
                     sh 'git config --global user.name "rezaul"'
                     sh 'git config --global user.email "sayem010ahmed@gmail.com"'
                     sh 'git add k8s/angular-deployment.yml'
@@ -85,39 +73,5 @@ pipeline {
                 }
             }
         }
-
-
-
-        // stage('Push the changed deployment file to Git'){
-        //     steps {
-        //         script{
-        //             sh """
-        //             git config --global user.name "rezaul"
-        //             git config --global user.email "sayem010ahmed@gmail.com"
-        //             git add k8s/angular-deployment.yml
-        //             git commit -m 'Updated the deployment file' """
-        //             withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'gpass', usernameVariable: 'githubuser')]) {
-        //                 sh "git push http://$githubuser:$gpass@github.com/imrezaulkrm/Studentify.git main"
-        //             }
-        //         }
-        //     }
-        // }
     }
 }
-
-
-// stage('Build Docker Image'){
-//             steps {
-//                 sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
-//                 sh "docker build -t ${IMAGE_NAME}:latest ."
-//             }
-//         }
-//         stage('Push Docker Image'){
-//             steps {
-//                 withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pass', usernameVariable: 'user')]) {
-//                     sh "docker login -u $user --password $pass"
-//                     sh "docker push ${IMAGE_NAME}:${IMAGE_TAG} ."
-//                     sh "docker push ${IMAGE_NAME}:latest ."
-//                 }
-//             }
-//         }
