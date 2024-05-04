@@ -28,15 +28,14 @@ To get started with the Angular frontend, follow these steps:
 
 Here are some screenshots of the Studentify Angular frontend:
 
-![Home Page](https://github.com/imrezaulkrm/Studentify/raw/main/images/home-page.png)
-
+![Home Page](https://github.com/imrezaulkrm/Studentify/raw/frontend/images/home-page.png)
 > *Homepage of the Studentify Angular frontend.*
 
-![Student Form Page](https://github.com/imrezaulkrm/Studentify/raw/main/images/student-page.png)
+![Student Form Page](https://github.com/imrezaulkrm/Studentify/raw/frontend/images/student-page.png)
 
 > *Adding a new student in the Studentify Angular frontend.*
 
-![Update Page](https://github.com/imrezaulkrm/Studentify/raw/main/images/update-page.png)
+![Update Page](https://github.com/imrezaulkrm/Studentify/raw/frontend/images/update-page.png)
 > *Update student information in the Studentify Angular frontend.*
 
 ## Technologies Used
